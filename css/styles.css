@@ -84,4 +84,49 @@ header .hero .hero-inner .indicators .circle.active {
   background-color: #fff;
 }
 
+main .about .about-inner {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 90px 0;
+}
+main .about .about-inner .about-title {
+  font-size: 60px;
+  font-weight: 700;
+}
+main .about .about-inner .about-title span {
+  font-weight: 200;
+}
+main .about .about-inner .about-description {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 38px;
+}
+main .about .about-inner .line {
+  width: 80px;
+  height: 2px;
+  background-color: #000;
+  margin: 40px 0;
+}
+main .about .about-inner .about-text {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+main .testimonials {
+  height: 650px;
+  background-color: #ffddd5;
+}
+main .testimonials .testimonials-inner {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 90px 0;
+}
+
 /*# sourceMappingURL=styles.css.map */

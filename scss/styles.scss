@@ -94,6 +94,63 @@ header{
     }
 }
 
+main{
+    .about{
+
+        .about-inner{
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 90px 0;
+
+            .about-title{
+                font-size: 60px;
+                font-weight: 700;
+
+                span{
+                    font-weight: 200;
+                }
+            }
+
+            .about-description{
+                font-size: 20px;
+                font-weight: 600;
+                margin-top: 38px;
+            }
+
+            .line{
+                width: 80px;
+                height: 2px;
+                background-color: #000;
+                margin: 40px 0;
+            }
+
+            .about-text{
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .testimonials{
+        height: 650px;
+        background-color: #ffddd5;
+
+        .testimonials-inner{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            padding: 90px 0;
+        }
+    }
+}
+
 
 
 
