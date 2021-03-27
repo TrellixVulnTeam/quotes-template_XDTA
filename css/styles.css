@@ -12,6 +12,24 @@ a {
   text-decoration: none;
 }
 
+.btn {
+  align-self: center;
+  margin-top: 60px;
+}
+.btn button {
+  width: 280px;
+  height: 60px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
 header {
   background-image: url(../images/home.jpg);
   background-size: cover;
@@ -212,23 +230,6 @@ main .reasons .reasons-inner .cards-row .card .card-writter {
 main .reasons .reasons-inner .cards-row:last-child .card {
   border-top: 0;
 }
-main .reasons .reasons-inner .btn {
-  align-self: center;
-  margin-top: 60px;
-}
-main .reasons .reasons-inner .btn button {
-  width: 280px;
-  height: 60px;
-  border-radius: 4px;
-  border: 1px solid #000;
-  background: none;
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  cursor: pointer;
-}
 main .quotes {
   height: 660px;
   background-image: url(../images/quotes-bg.jpg);
@@ -258,6 +259,208 @@ main .quotes .quotes-inner .reference {
 }
 main .quotes .quotes-inner .reference .underline {
   text-decoration: underline;
+}
+main .posters {
+  background-color: #eaeef1;
+}
+main .posters .posters-inner {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 90px 0;
+}
+main .posters .posters-inner .posters-title {
+  font-size: 60px;
+  font-weight: 700;
+}
+main .posters .posters-inner .line {
+  width: 80px;
+  height: 2px;
+  background-color: #000;
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+main .posters .posters-inner .posters-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 380px 380px;
+  grid-gap: 30px;
+  grid-template-areas: "column-1 column-1 column-2 column-2" "column-1 column-1 column-3 column-4" ". . . .";
+}
+main .posters .posters-inner .posters-cards .poster-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child {
+  background-image: url(../images/poster_1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-area: column-1;
+  color: #fff;
+  box-shadow: 0px 2px 100px 0px rgba(0, 0, 0, 0.43);
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child .poster-text {
+  font-family: "tw cen mt condensed";
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  margin: auto 0;
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child .buy-share {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  padding: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child .buy-share .buy-btn {
+  color: #fff;
+  font-size: 20px;
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child .buy-share .share {
+  color: #fff;
+  font-size: 15px;
+}
+main .posters .posters-inner .posters-cards .poster-card:first-child .buy-share .share img {
+  width: 20px;
+}
+main .posters .posters-inner .posters-cards .poster-card:nth-child(2) {
+  background-image: url(../images/poster_2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-area: column-2;
+  align-items: flex-start;
+  padding: 80px 0 0 80px;
+}
+main .posters .posters-inner .posters-cards .poster-card:nth-child(2) .poster-text {
+  font-family: "Times New Roman";
+  font-size: 36px;
+  font-weight: 700;
+  font-style: italic;
+}
+main .posters .posters-inner .posters-cards .poster-card:nth-child(2) .poster-writter {
+  font-family: "Georgia";
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+main .posters .posters-inner .posters-cards .poster-card:nth-child(3) {
+  background-image: url(../images/poster_3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-area: column-3;
+}
+main .posters .posters-inner .posters-cards .poster-card:nth-child(3) .poster-text {
+  font-family: "Eagle Lake", cursive;
+  font-size: 30px;
+  margin-top: 35px;
+}
+main .posters .posters-inner .posters-cards .poster-card:last-child {
+  background-image: url(../images/poster_4.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  grid-area: column-4;
+  color: #fff;
+}
+main .posters .posters-inner .posters-cards .poster-card:last-child .poster-text {
+  font-family: "Lato", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 170px;
+}
+main .posters .posters-inner .posters-cards .poster-card:last-child .poster-text span {
+  font-size: 37px;
+  font-weight: 900;
+}
+
+footer .footer-inner {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 90px 0;
+  font-family: "Montserrat", sans-serif;
+}
+footer .footer-inner .footer-nav, footer .footer-inner .footer-shop, footer .footer-inner .footer-contact, footer .footer-inner .footer-newsletter {
+  flex: 1;
+}
+footer .footer-inner .footer-nav .footer-title, footer .footer-inner .footer-shop .footer-title, footer .footer-inner .footer-contact .footer-title, footer .footer-inner .footer-newsletter .footer-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+footer .footer-inner .footer-nav .footer-text, footer .footer-inner .footer-shop .footer-text, footer .footer-inner .footer-contact .footer-text, footer .footer-inner .footer-newsletter .footer-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+footer .footer-inner .footer-nav .phone, footer .footer-inner .footer-shop .phone, footer .footer-inner .footer-contact .phone, footer .footer-inner .footer-newsletter .phone {
+  margin-top: 40px;
+}
+footer .footer-inner .footer-nav .phone, footer .footer-inner .footer-nav .fax, footer .footer-inner .footer-nav .mail, footer .footer-inner .footer-shop .phone, footer .footer-inner .footer-shop .fax, footer .footer-inner .footer-shop .mail, footer .footer-inner .footer-contact .phone, footer .footer-inner .footer-contact .fax, footer .footer-inner .footer-contact .mail, footer .footer-inner .footer-newsletter .phone, footer .footer-inner .footer-newsletter .fax, footer .footer-inner .footer-newsletter .mail {
+  line-height: 1.6;
+}
+footer .footer-inner .footer-nav nav, footer .footer-inner .footer-shop nav, footer .footer-inner .footer-contact nav, footer .footer-inner .footer-newsletter nav {
+  display: flex;
+  flex-direction: column;
+}
+footer .footer-inner .footer-nav nav .nav-link, footer .footer-inner .footer-shop nav .nav-link, footer .footer-inner .footer-contact nav .nav-link, footer .footer-inner .footer-newsletter nav .nav-link {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+footer .footer-inner .footer-nav input, footer .footer-inner .footer-shop input, footer .footer-inner .footer-contact input, footer .footer-inner .footer-newsletter input {
+  height: 40px;
+  width: 100%;
+  background-color: #eaeef1;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+footer .footer-inner .footer-nav input::placeholder, footer .footer-inner .footer-shop input::placeholder, footer .footer-inner .footer-contact input::placeholder, footer .footer-inner .footer-newsletter input::placeholder {
+  color: #a9a9a9;
+}
+footer .footer-inner .footer-nav button, footer .footer-inner .footer-shop button, footer .footer-inner .footer-contact button, footer .footer-inner .footer-newsletter button {
+  width: 128px;
+  height: 38px;
+}
+footer .footer-ending {
+  background-color: #eaeef1;
+  height: 90px;
+}
+footer .footer-ending .footer-ending-inner {
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-ending .footer-ending-inner .copyright {
+  font-size: 16px;
+  font-weight: 400;
+}
+footer .footer-ending .footer-ending-inner .socials {
+  display: flex;
+}
+footer .footer-ending .footer-ending-inner .socials i {
+  color: #bbbec1;
+  margin-left: 24px;
 }
 
 /*# sourceMappingURL=styles.css.map */

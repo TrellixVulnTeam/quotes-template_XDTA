@@ -12,6 +12,25 @@ a{
     text-decoration: none;
 }
 
+.btn{
+    align-self: center;
+    margin-top: 60px;
+
+    button{
+        width: 280px;
+        height: 60px;
+        border-radius: 4px;
+        border: 1px solid #000;
+        background: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        cursor: pointer;
+    }
+}
+
 header{
     background-image: url(../images/home.jpg);
     background-size: cover;
@@ -256,24 +275,6 @@ main{
                 }
             }
 
-            .btn{
-                align-self: center;
-                margin-top: 60px;
-
-                button{
-                    width: 280px;
-                    height: 60px;
-                    border-radius: 4px;
-                    border: 1px solid #000;
-                    background: none;
-                    font-family: 'Montserrat', sans-serif;
-                    font-size: 20px;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 3px;
-                    cursor: pointer;
-                }
-            }
         }
     }
 
@@ -311,8 +312,251 @@ main{
             }
         }
     }
+
+    .posters{
+        background-color: #eaeef1;
+
+        .posters-inner{
+            height: 100%;
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 90px 0;
+
+            .posters-title{
+                font-size: 60px;
+                font-weight: 700;
+            }
+
+            .line{
+                width: 80px;
+                height: 2px;
+                background-color: #000;
+                margin-top: 30px;
+                margin-bottom: 80px;
+            }
+
+            .posters-cards{
+                display: grid;
+                grid-template-columns:  1fr 1fr 1fr 1fr;
+                grid-template-rows: 380px 380px;
+                grid-gap: 30px;
+                grid-template-areas:
+                    "column-1 column-1 column-2 column-2"
+                    "column-1 column-1 column-3 column-4"
+                    ". . . .";
+
+                .poster-card{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .poster-card:first-child{
+                    background-image: url(../images/poster_1.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    grid-area: column-1;
+                    color: #fff;
+                    box-shadow: 0px 2px 100px 0px rgba(0, 0, 0, 0.43);
+                    
+                    .poster-text{
+                        font-family: 'tw cen mt condensed';
+                        font-size: 80px;
+                        font-weight: 700;
+                        text-align: center;
+                        margin: auto 0;
+                    }
+
+                    .buy-share{
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 700;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-self:flex-end;
+                        padding: 30px;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        
+                        .buy-btn{
+                            color: #fff;
+                            font-size: 20px;
+                        }
+
+                        .share{
+                            color: #fff;
+                            font-size: 15px;
+                            
+                            img{
+                                width: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .poster-card:nth-child(2){
+                    background-image: url(../images/poster_2.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    grid-area: column-2;
+                    align-items: flex-start;
+                    padding: 80px 0 0 80px;
+
+                    .poster-text{
+                        font-family: 'Times New Roman';
+                        font-size: 36px;
+                        font-weight: 700;
+                        font-style: italic;
+                    }
+
+                    .poster-writter{
+                        font-family: 'Georgia';
+                        font-size: 20px;
+                        font-weight: 400;
+                        margin-top: 15px;
+                    }
+                }
+
+                .poster-card:nth-child(3){
+                    background-image: url(../images/poster_3.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    grid-area: column-3;
+
+                    .poster-text{
+                        font-family: 'Eagle Lake', cursive;
+                        font-size: 30px;
+                        margin-top: 35px;
+                    }
+                }
+
+                .poster-card:last-child{
+                    background-image: url(../images/poster_4.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    grid-area: column-4;
+                    color: #fff;
+
+                    .poster-text{
+                        font-family: 'Lato', sans-serif;
+                        font-size: 30px;
+                        font-weight: 700;
+                        margin-top: 170px;
+
+                        span{
+                            font-size: 37px;
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
+footer{
+
+    .footer-inner{
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        padding: 90px 0;
+        font-family: 'Montserrat', sans-serif;
+
+        .footer-nav, .footer-shop, .footer-contact, .footer-newsletter{
+            flex: 1;
+
+            .footer-title{
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 50px;
+            }
+
+            .footer-text{
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1.6;
+            } 
+
+            .phone{
+                margin-top: 40px;
+            }
+
+            .phone, .fax, .mail{
+                line-height: 1.6;
+            }
+
+            nav{
+                display: flex;
+                flex-direction: column;
+
+                .nav-link{
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-bottom: 18px;
+                }
+            }
+
+            input{
+                height: 40px;
+                width: 100%;
+                background-color: #eaeef1;
+                border: none;
+                outline: none;
+                padding-left: 20px;
+                margin-top: 30px;
+                margin-bottom: 15px;
+
+                &::placeholder{
+                    color: #a9a9a9;
+                }
+            }
+
+            button{
+                width: 128px;
+                height: 38px;
+            }
+           
+        }
+    }
+
+    .footer-ending{
+        background-color: #eaeef1;
+        height: 90px;
+
+        .footer-ending-inner{
+            font-family: 'Montserrat', sans-serif;
+            height: 100%;
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .copyright{
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .socials{
+                display: flex;
+
+                i{
+                    color: #bbbec1;
+                    margin-left: 24px;
+                }
+            }
+        }
+    }
+}
 
 
 
