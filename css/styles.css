@@ -1,3 +1,9 @@
+main .posters .posters-inner .posters-cards .poster-card:last-child, main .posters .posters-inner .posters-cards .poster-card:nth-child(3), main .posters .posters-inner .posters-cards .poster-card:nth-child(2), main .posters .posters-inner .posters-cards .poster-card:first-child, main .quotes, header {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 *, *::after, *::before {
   padding: 0;
   margin: 0;
@@ -31,13 +37,12 @@ a {
 }
 
 header {
+  position: relative;
   background-image: url(../images/home.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 1000px;
 }
 header .header-inner {
+  height: 180px;
   width: 70%;
   margin: 0 auto;
   display: flex;
@@ -57,48 +62,67 @@ header .header-inner .nav-menu {
   border-top: 4px solid #fff;
   border-bottom: 4px solid #fff;
 }
-header .hero {
+header .header-inner nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 1000px;
-  color: #fff;
-}
-header .hero .hero-inner {
-  width: 70%;
   height: 100%;
+  background-color: #0d1013;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 190px 0 0 290px;
+  opacity: 98%;
+  display: none;
+}
+header .header-inner nav .nav-link {
+  color: #626262;
+  font-size: 50px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin-left: 0;
+  transition: 0.8s;
+}
+header .header-inner nav .nav-link:hover {
+  color: #fff;
+  margin-left: 15px;
+}
+header .hero-inner {
+  width: 70%;
+  height: 820px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  color: #fff;
 }
-header .hero .hero-inner .hero-title {
+header .hero-inner .hero-title {
   font-size: 220px;
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 14.08px;
 }
-header .hero .hero-inner .hero-subtitle {
+header .hero-inner .hero-subtitle {
   font-size: 64px;
   font-weight: 700;
   letter-spacing: 6.4px;
   margin-bottom: 228px;
 }
-header .hero .hero-inner .indicators {
+header .hero-inner .indicators {
   display: flex;
   align-self: center;
   margin-bottom: 114px;
 }
-header .hero .hero-inner .indicators .circle {
+header .hero-inner .indicators .circle {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background-color: #000;
   margin: 0 12px;
 }
-header .hero .hero-inner .indicators .circle.active {
+header .hero-inner .indicators .circle.active {
   background-color: #fff;
 }
 
@@ -233,9 +257,6 @@ main .reasons .reasons-inner .cards-row:last-child .card {
 main .quotes {
   height: 660px;
   background-image: url(../images/quotes-bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 main .quotes .quotes-inner {
   height: 100%;
@@ -296,9 +317,6 @@ main .posters .posters-inner .posters-cards .poster-card {
 }
 main .posters .posters-inner .posters-cards .poster-card:first-child {
   background-image: url(../images/poster_1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   grid-area: column-1;
   color: #fff;
   box-shadow: 0px 2px 100px 0px rgba(0, 0, 0, 0.43);
@@ -334,9 +352,6 @@ main .posters .posters-inner .posters-cards .poster-card:first-child .buy-share 
 }
 main .posters .posters-inner .posters-cards .poster-card:nth-child(2) {
   background-image: url(../images/poster_2.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   grid-area: column-2;
   align-items: flex-start;
   padding: 80px 0 0 80px;
@@ -355,9 +370,6 @@ main .posters .posters-inner .posters-cards .poster-card:nth-child(2) .poster-wr
 }
 main .posters .posters-inner .posters-cards .poster-card:nth-child(3) {
   background-image: url(../images/poster_3.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   grid-area: column-3;
 }
 main .posters .posters-inner .posters-cards .poster-card:nth-child(3) .poster-text {
@@ -367,9 +379,6 @@ main .posters .posters-inner .posters-cards .poster-card:nth-child(3) .poster-te
 }
 main .posters .posters-inner .posters-cards .poster-card:last-child {
   background-image: url(../images/poster_4.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   grid-area: column-4;
   color: #fff;
 }
@@ -384,13 +393,15 @@ main .posters .posters-inner .posters-cards .poster-card:last-child .poster-text
   font-weight: 900;
 }
 
+footer {
+  font-family: "Montserrat", sans-serif;
+}
 footer .footer-inner {
   height: 100%;
   width: 90%;
   margin: 0 auto;
   display: flex;
   padding: 90px 0;
-  font-family: "Montserrat", sans-serif;
 }
 footer .footer-inner .footer-nav, footer .footer-inner .footer-shop, footer .footer-inner .footer-contact, footer .footer-inner .footer-newsletter {
   flex: 1;
@@ -443,7 +454,6 @@ footer .footer-ending {
   height: 90px;
 }
 footer .footer-ending .footer-ending-inner {
-  font-family: "Montserrat", sans-serif;
   height: 100%;
   width: 90%;
   margin: 0 auto;

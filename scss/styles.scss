@@ -1,3 +1,25 @@
+$black: #000;
+$white: #fff;
+$gray: #eaeef1;
+
+$primary-color: $black;
+$secondary-color: $white;
+$tertiary-color: $gray;
+
+$font-primary: 'Raleway', sans-serif; 
+$font-secondary:'Montserrat', sans-serif;
+
+%bg-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin title {
+    font-size: 60px;
+    font-weight: 700;
+}
+
 *, *::after, *::before{
     padding: 0;
     margin: 0;
@@ -5,7 +27,7 @@
 }
 
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: $font-primary;
 }
 
 a{
@@ -20,9 +42,9 @@ a{
         width: 280px;
         height: 60px;
         border-radius: 4px;
-        border: 1px solid #000;
+        border: 1px solid $primary-color;
         background: none;
-        font-family: 'Montserrat', sans-serif;
+        font-family: $font-secondary;
         font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
@@ -32,13 +54,13 @@ a{
 }
 
 header{
+    position: relative;
     background-image: url(../images/home.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    @extend %bg-image;
     height: 1000px;
 
     .header-inner{
+        height: 180px;
         width: 70%;
         margin: 0 auto;
         display: flex;
@@ -46,67 +68,91 @@ header{
         align-items: center;
         padding: 50px 0;
 
-        .logo img{
-            vertical-align: middle;
+        .logo{
+            
+            img{
+                vertical-align: middle;
+            }
         }
 
         .nav-menu{
-            font-family: 'Montserrat', sans-serif;
+            font-family: $font-secondary;
             font-weight: 700;
             font-size: 15px;
             padding: 9px 0;
-            color: #fff;
-            border-top: 4px solid #fff;
-            border-bottom: 4px solid #fff;
+            color: $secondary-color;
+            border-top: 4px solid $secondary-color;
+            border-bottom: 4px solid $secondary-color;
+        }
+
+        nav{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d1013;
+            font-family: $font-secondary;
+            display: flex;
+            flex-direction: column;
+            padding: 190px 0 0 290px;
+            opacity: 98%;
+            display: none;
+
+            .nav-link{
+                color: #626262;
+                font-size: 50px;
+                line-height: 1.6;
+                text-transform: uppercase;
+                margin-left: 0;
+                transition: 0.8s;
+
+                &:hover{
+                    color: $secondary-color;
+                    margin-left: 15px;
+                }
+            }
         }
     }
 
-    .hero{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 1000px;
-        color: #fff;
+    .hero-inner{
+        width: 70%;
+        height: 820px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        color: $secondary-color;
+
+        .hero-title{
+            font-size: 220px;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 14.08px;
+        }
     
-        .hero-inner{
-            width: 70%;
-            height: 100%;
-            margin: 0 auto;
+        .hero-subtitle{
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 6.4px;
+            margin-bottom: 228px;
+        }
+
+        .indicators{
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
+            align-self: center;
+            margin-bottom: 114px;
     
-            .hero-title{
-                font-size: 220px;
-                font-weight: 100;
-                text-transform: uppercase;
-                letter-spacing: 14.08px;
-            }
-        
-            .hero-subtitle{
-                font-size: 64px;
-                font-weight: 700;
-                letter-spacing: 6.4px;
-                margin-bottom: 228px;
-            }
+            .circle{
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                background-color: $primary-color;
+                margin: 0 12px;
 
-            .indicators{
-                display: flex;
-                align-self: center;
-                margin-bottom: 114px;
-        
-                .circle{
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 50%;
-                    background-color: #000;
-                    margin: 0 12px;
-
-                    &.active{
-                        background-color: #fff;
-                    }
+                &.active{
+                    background-color: $secondary-color;
                 }
             }
         }
@@ -114,6 +160,7 @@ header{
 }
 
 main{
+
     .about{
 
         .about-inner{
@@ -127,8 +174,7 @@ main{
             padding: 90px 0;
 
             .about-title{
-                font-size: 60px;
-                font-weight: 700;
+                @include title;
 
                 span{
                     font-weight: 200;
@@ -144,7 +190,7 @@ main{
             .line{
                 width: 80px;
                 height: 2px;
-                background-color: #000;
+                background-color: $primary-color;
                 margin: 40px 0;
             }
 
@@ -222,14 +268,13 @@ main{
             padding: 90px 0;
 
             .reasons-title{
-                font-size: 60px;
-                font-weight: 700;
+                @include title;
             }
 
             .line{
                 width: 80px;
                 height: 2px;
-                background-color: #000;
+                background-color: $primary-color;
                 margin-top: 30px;
                 margin-bottom: 80px;
             }
@@ -281,9 +326,7 @@ main{
     .quotes{
         height: 660px;
         background-image: url(../images/quotes-bg.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        @extend %bg-image;
 
         .quotes-inner{
             height: 100%;
@@ -294,11 +337,10 @@ main{
             justify-content: center;
             text-align: center;
             padding: 90px 0;
-            color: #fff;
+            color: $secondary-color;
 
             .quote{
-                font-size: 60px;
-                font-weight: 700;
+                @include title;
             }
 
             .reference{
@@ -314,7 +356,7 @@ main{
     }
 
     .posters{
-        background-color: #eaeef1;
+        background-color: $tertiary-color;
 
         .posters-inner{
             height: 100%;
@@ -325,14 +367,13 @@ main{
             padding: 90px 0;
 
             .posters-title{
-                font-size: 60px;
-                font-weight: 700;
+                @include title;
             }
 
             .line{
                 width: 80px;
                 height: 2px;
-                background-color: #000;
+                background-color: $primary-color;
                 margin-top: 30px;
                 margin-bottom: 80px;
             }
@@ -355,11 +396,9 @@ main{
 
                 .poster-card:first-child{
                     background-image: url(../images/poster_1.jpg);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    @extend %bg-image;
                     grid-area: column-1;
-                    color: #fff;
+                    color: $secondary-color;
                     box-shadow: 0px 2px 100px 0px rgba(0, 0, 0, 0.43);
                     
                     .poster-text{
@@ -371,7 +410,7 @@ main{
                     }
 
                     .buy-share{
-                        font-family: 'Montserrat', sans-serif;
+                        font-family: $font-secondary;
                         font-weight: 700;
                         width: 100%;
                         display: flex;
@@ -382,12 +421,12 @@ main{
                         letter-spacing: 2px;
                         
                         .buy-btn{
-                            color: #fff;
+                            color: $secondary-color;
                             font-size: 20px;
                         }
 
                         .share{
-                            color: #fff;
+                            color: $secondary-color;
                             font-size: 15px;
                             
                             img{
@@ -399,9 +438,7 @@ main{
 
                 .poster-card:nth-child(2){
                     background-image: url(../images/poster_2.jpg);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    @extend %bg-image;
                     grid-area: column-2;
                     align-items: flex-start;
                     padding: 80px 0 0 80px;
@@ -423,9 +460,7 @@ main{
 
                 .poster-card:nth-child(3){
                     background-image: url(../images/poster_3.jpg);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    @extend %bg-image;
                     grid-area: column-3;
 
                     .poster-text{
@@ -437,11 +472,9 @@ main{
 
                 .poster-card:last-child{
                     background-image: url(../images/poster_4.jpg);
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    @extend %bg-image;
                     grid-area: column-4;
-                    color: #fff;
+                    color: $secondary-color;
 
                     .poster-text{
                         font-family: 'Lato', sans-serif;
@@ -461,14 +494,13 @@ main{
 }
 
 footer{
-
+    font-family: $font-secondary;
     .footer-inner{
         height: 100%;
         width: 90%;
         margin: 0 auto;
         display: flex;
         padding: 90px 0;
-        font-family: 'Montserrat', sans-serif;
 
         .footer-nav, .footer-shop, .footer-contact, .footer-newsletter{
             flex: 1;
@@ -498,7 +530,7 @@ footer{
                 flex-direction: column;
 
                 .nav-link{
-                    color: #000;
+                    color: $primary-color;
                     font-size: 16px;
                     font-weight: 400;
                     margin-bottom: 18px;
@@ -508,7 +540,7 @@ footer{
             input{
                 height: 40px;
                 width: 100%;
-                background-color: #eaeef1;
+                background-color: $tertiary-color;
                 border: none;
                 outline: none;
                 padding-left: 20px;
@@ -529,11 +561,10 @@ footer{
     }
 
     .footer-ending{
-        background-color: #eaeef1;
+        background-color: $tertiary-color;
         height: 90px;
 
         .footer-ending-inner{
-            font-family: 'Montserrat', sans-serif;
             height: 100%;
             width: 90%;
             margin: 0 auto;
