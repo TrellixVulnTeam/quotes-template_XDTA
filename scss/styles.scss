@@ -61,7 +61,7 @@ header{
 
     .header-inner{
         height: 180px;
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -76,19 +76,49 @@ header{
         }
 
         .nav-menu{
+            position: relative;
+            z-index: 1;
             font-family: $font-secondary;
             font-weight: 700;
             font-size: 15px;
             padding: 9px 0;
             color: $secondary-color;
-            border-top: 4px solid $secondary-color;
-            border-bottom: 4px solid $secondary-color;
+            cursor: pointer;
+
+            &::after, &::before{
+                content: "";
+                position: absolute;
+                height: 4px;
+                width: 100%;
+                left: 0;
+                background-color: $secondary-color;
+                transform: rotate(0deg);
+                transition: 0.8s;
+            }
+
+            &::after{
+                bottom: -5px;
+            }
+
+            &::before{
+                top: -5px;
+            }
+
+            &.open::after{
+                top: -25px;
+                transform: rotate(135deg);
+            }
+
+            &.open::before{
+                top: -25px;
+                transform: rotate(-135deg);
+            }
         }
 
         nav{
             position: absolute;
             top: 0;
-            left: 0;
+            left: -200%;
             width: 100%;
             height: 100%;
             background-color: #0d1013;
@@ -97,7 +127,11 @@ header{
             flex-direction: column;
             padding: 190px 0 0 290px;
             opacity: 98%;
-            display: none;
+            transition: 0.8s;
+
+            &.open{
+                left: 0;
+            }
 
             .nav-link{
                 color: #626262;
@@ -116,7 +150,7 @@ header{
     }
 
     .hero-inner{
-        width: 70%;
+        width: 80%;
         height: 820px;
         margin: 0 auto;
         display: flex;
@@ -220,6 +254,7 @@ main{
                     font-size: 36px;
                     font-weight: 700;
                     line-height: 1.5;
+                    width: 80%;
                 }
 
                 .testimonials-writter{
@@ -462,6 +497,7 @@ main{
                     background-image: url(../images/poster_3.jpg);
                     @extend %bg-image;
                     grid-area: column-3;
+                    text-align: center;
 
                     .poster-text{
                         font-family: 'Eagle Lake', cursive;
@@ -589,5 +625,42 @@ footer{
     }
 }
 
+@media (max-width: 1040px){
 
+    main{
+
+        .testimonials{
+        
+            .testimonials-inner{
+                width: 100%;
+        
+                .testimonials-content{
+                    width: 90%;
+                    height: 100%;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 90px 0;
+                    flex:none;
+
+                    .testimonials-text{
+                        width: 100%;
+                    }
+                }
+            
+                .testimonials-image{
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 945px){
+    
+}
 

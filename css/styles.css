@@ -43,7 +43,7 @@ header {
 }
 header .header-inner {
   height: 180px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -54,18 +54,43 @@ header .header-inner .logo img {
   vertical-align: middle;
 }
 header .header-inner .nav-menu {
+  position: relative;
+  z-index: 1;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 15px;
   padding: 9px 0;
   color: #fff;
-  border-top: 4px solid #fff;
-  border-bottom: 4px solid #fff;
+  cursor: pointer;
+}
+header .header-inner .nav-menu::after, header .header-inner .nav-menu::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  left: 0;
+  background-color: #fff;
+  transform: rotate(0deg);
+  transition: 0.8s;
+}
+header .header-inner .nav-menu::after {
+  bottom: -5px;
+}
+header .header-inner .nav-menu::before {
+  top: -5px;
+}
+header .header-inner .nav-menu.open::after {
+  top: -25px;
+  transform: rotate(135deg);
+}
+header .header-inner .nav-menu.open::before {
+  top: -25px;
+  transform: rotate(-135deg);
 }
 header .header-inner nav {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -200%;
   width: 100%;
   height: 100%;
   background-color: #0d1013;
@@ -74,7 +99,10 @@ header .header-inner nav {
   flex-direction: column;
   padding: 190px 0 0 290px;
   opacity: 98%;
-  display: none;
+  transition: 0.8s;
+}
+header .header-inner nav.open {
+  left: 0;
 }
 header .header-inner nav .nav-link {
   color: #626262;
@@ -89,7 +117,7 @@ header .header-inner nav .nav-link:hover {
   margin-left: 15px;
 }
 header .hero-inner {
-  width: 70%;
+  width: 80%;
   height: 820px;
   margin: 0 auto;
   display: flex;
@@ -177,6 +205,7 @@ main .testimonials .testimonials-inner .testimonials-content .testimonials-text 
   font-size: 36px;
   font-weight: 700;
   line-height: 1.5;
+  width: 80%;
 }
 main .testimonials .testimonials-inner .testimonials-content .testimonials-writter {
   font-size: 36px;
@@ -371,6 +400,7 @@ main .posters .posters-inner .posters-cards .poster-card:nth-child(2) .poster-wr
 main .posters .posters-inner .posters-cards .poster-card:nth-child(3) {
   background-image: url(../images/poster_3.jpg);
   grid-area: column-3;
+  text-align: center;
 }
 main .posters .posters-inner .posters-cards .poster-card:nth-child(3) .poster-text {
   font-family: "Eagle Lake", cursive;
@@ -471,6 +501,30 @@ footer .footer-ending .footer-ending-inner .socials {
 footer .footer-ending .footer-ending-inner .socials i {
   color: #bbbec1;
   margin-left: 24px;
+}
+
+@media (max-width: 1040px) {
+  main .testimonials .testimonials-inner {
+    width: 100%;
+  }
+  main .testimonials .testimonials-inner .testimonials-content {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px 0;
+    flex: none;
+  }
+  main .testimonials .testimonials-inner .testimonials-content .testimonials-text {
+    width: 100%;
+  }
+  main .testimonials .testimonials-inner .testimonials-image {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
