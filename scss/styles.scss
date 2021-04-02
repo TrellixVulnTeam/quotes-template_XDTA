@@ -6,6 +6,11 @@ $primary-color: $black;
 $secondary-color: $white;
 $tertiary-color: $gray;
 
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
 $font-primary: 'Raleway', sans-serif; 
 $font-secondary:'Montserrat', sans-serif;
 
@@ -18,6 +23,31 @@ $font-secondary:'Montserrat', sans-serif;
 @mixin title {
     font-size: 60px;
     font-weight: 700;
+}
+
+@mixin sm {
+    @media (max-width: #{$screen-sm}){
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: #{$screen-md}){
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: #{$screen-lg}){
+        @content;
+    }
+}
+
+
+@mixin xl {
+    @media (max-width: #{$screen-xl}){
+        @content;
+    }
 }
 
 *, *::after, *::before{
@@ -54,13 +84,14 @@ a{
 }
 
 header{
-    position: relative;
-    background-image: url(../images/home.jpg);
-    @extend %bg-image;
-    height: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 23;
 
     .header-inner{
-        height: 180px;
+        height: 100%;
         width: 80%;
         margin: 0 auto;
         display: flex;
@@ -119,8 +150,8 @@ header{
             position: absolute;
             top: 0;
             left: -200%;
+            height: 1000px;
             width: 100%;
-            height: 100%;
             background-color: #0d1013;
             font-family: $font-secondary;
             display: flex;
@@ -128,6 +159,14 @@ header{
             padding: 190px 0 0 290px;
             opacity: 98%;
             transition: 0.8s;
+
+            @include lg {
+                height: 600px;
+            }
+
+            @include md {
+                padding: 140px 0 0 200px;
+            }
 
             &.open{
                 left: 0;
@@ -141,6 +180,10 @@ header{
                 margin-left: 0;
                 transition: 0.8s;
 
+                @include lg {
+                    font-size: 30px;
+                }
+
                 &:hover{
                     color: $secondary-color;
                     margin-left: 15px;
@@ -148,45 +191,62 @@ header{
             }
         }
     }
+}
 
-    .hero-inner{
-        width: 80%;
-        height: 820px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        color: $secondary-color;
+.hero{
+    height: 1000px;
 
-        .hero-title{
-            font-size: 220px;
-            font-weight: 100;
-            text-transform: uppercase;
-            letter-spacing: 14.08px;
-        }
+    @include lg {
+        height: 600px;
+    }
+
     
-        .hero-subtitle{
-            font-size: 64px;
-            font-weight: 700;
-            letter-spacing: 6.4px;
-            margin-bottom: 228px;
+    .disabled+.owl-dots{
+
+        @include lg {
+            margin-top: -60px !important;
+        }
+    }
+
+    .item{
+        background-image: url('../images/home.jpg');
+        background-size: cover;
+        height: 1000px;
+        width: 100%;
+
+        @include lg {
+            height: 600px;
         }
 
-        .indicators{
+        .item-inner{
+            width: 80%;
+            height: 100%;
+            margin: 0 auto;
             display: flex;
-            align-self: center;
-            margin-bottom: 114px;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            color: $secondary-color;
     
-            .circle{
-                width: 16px;
-                height: 16px;
-                border-radius: 50%;
-                background-color: $primary-color;
-                margin: 0 12px;
+            .hero-title{
+                font-size: 220px;
+                font-weight: 100;
+                text-transform: uppercase;
+                letter-spacing: 14.08px;
 
-                &.active{
-                    background-color: $secondary-color;
+                @include lg {
+                    font-size: 140px;
+                }
+            }
+        
+            .hero-subtitle{
+                font-size: 64px;
+                font-weight: 700;
+                letter-spacing: 6.4px;
+                margin-bottom: 240px;
+
+                @include lg {
+                    font-size: 42px;
                 }
             }
         }
@@ -210,6 +270,10 @@ main{
             .about-title{
                 @include title;
 
+                @include md {
+                    font-size: 45px;
+                }
+
                 span{
                     font-weight: 200;
                 }
@@ -219,6 +283,10 @@ main{
                 font-size: 20px;
                 font-weight: 600;
                 margin-top: 38px;
+
+                @include md {
+                    font-size: 18px;
+                }
             }
 
             .line{
@@ -232,6 +300,10 @@ main{
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 1.5;
+
+                @include md {
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -240,43 +312,91 @@ main{
         height: 650px;
         background-color: #ffddd5;
 
+        @include lg {
+            height: 550px;
+        }
+
         .testimonials-inner{
             height: 100%;
             margin: 0 auto;
             display: flex;
             align-items: flex-start;
 
-            .testimonials-content{
-                flex: 1;
-                padding: 100px 0px 80px 5%;
+            .disabled+.owl-dots{
+                margin-top: 0;
 
-                .testimonials-text{
-                    font-size: 36px;
-                    font-weight: 700;
-                    line-height: 1.5;
-                    width: 80%;
+                @include lg {
+                    margin-top: -60px;
+                    text-align: center;
                 }
 
-                .testimonials-writter{
-                    font-size: 36px;
-                    font-weight: 100;
-                    margin-top: 50px;
+                @include md {
+                    margin-top: -80px;
                 }
+            }
+            
+            .owl-dots{
+                margin-top: 0px;
+                text-align: start;
+                
+                .owl-dot{
 
-                .indicators{
-                    display: flex;
-
-                    .circle{
+                    &.active span{
+                        background-color: #626262;
+                    }
+                    
+                    span{
                         width: 10px;
                         height: 10px;
-                        border-radius: 50%;
                         border: 1px solid #626262;
                         margin: 40px 5px 0 5px;
+                        background: none;
 
-                        &.active{
+                        &.hover{
                             background-color: #626262;
                         }
+
                     }
+                }
+            }
+
+            .owl-carousel{
+                overflow: hidden;
+                flex: 1 !important;
+                padding: 100px 0px 80px 5%;
+                height: 100%;
+
+                @include lg {
+                    padding: 40px 0 40px 5%;
+                }
+
+                @include md {
+                    padding: 20px 0 20px 5%;
+                }
+
+                .testimonials-content{                
+    
+                    .testimonials-text{
+                        font-size: 36px;
+                        font-weight: 700;
+                        line-height: 1.5;
+                        width: 80%;
+
+                        @include lg {
+                            font-size: 30px;
+                        }
+                    }
+    
+                    .testimonials-writter{
+                        font-size: 36px;
+                        font-weight: 100;
+                        margin-top: 50px;
+
+                        @include lg {
+                            font-size: 30px;
+                        }
+                    }
+
                 }
             }
 
@@ -304,6 +424,10 @@ main{
 
             .reasons-title{
                 @include title;
+
+                @include md {
+                    font-size: 45px;
+                }
             }
 
             .line{
@@ -331,6 +455,10 @@ main{
                         font-size: 30px;
                         font-weight: 700;
                         text-transform: uppercase;
+
+                        @include md {
+                            font-size: 25px;
+                        }
                     }
 
                     .card-text{
@@ -338,12 +466,20 @@ main{
                         font-weight: 500;
                         margin: 36px 0;
                         line-height: 1.5;
+
+                        @include md {
+                            font-size: 18px;
+                        }
                     }
 
                     .card-writter{
                         font-size: 20px;
                         font-weight: 400;
                         font-style:italic;
+
+                        @include md {
+                            font-size: 18px;
+                        }
                     }
                 }
 
@@ -363,6 +499,10 @@ main{
         background-image: url(../images/quotes-bg.jpg);
         @extend %bg-image;
 
+        @include md {
+            height: 480px;
+        }
+
         .quotes-inner{
             height: 100%;
             width: 90%;
@@ -376,12 +516,20 @@ main{
 
             .quote{
                 @include title;
+
+                @include md {
+                    font-size: 45px;
+                }
             }
 
             .reference{
                 font-size: 20px;
                 font-weight: 400;
                 margin-top: 50px;
+
+                @include md {
+                    font-size: 18px;
+                }
 
                 .underline{
                     text-decoration:underline;
@@ -403,6 +551,10 @@ main{
 
             .posters-title{
                 @include title;
+
+                @include md {
+                    font-size: 45px;
+                }
             }
 
             .line{
@@ -423,6 +575,10 @@ main{
                     "column-1 column-1 column-3 column-4"
                     ". . . .";
 
+                @include md {
+                    grid-template-rows: 300px 300px;
+                }
+
                 .poster-card{
                     display: flex;
                     flex-direction: column;
@@ -442,6 +598,10 @@ main{
                         font-weight: 700;
                         text-align: center;
                         margin: auto 0;
+
+                        @include md {
+                            font-size: 60px;
+                        }
                     }
 
                     .buy-share{
@@ -458,11 +618,19 @@ main{
                         .buy-btn{
                             color: $secondary-color;
                             font-size: 20px;
+
+                            @include md {
+                                font-size: 16px;
+                            }
                         }
 
                         .share{
                             color: $secondary-color;
                             font-size: 15px;
+
+                            @include md {
+                                font-size: 12px;
+                            }
                             
                             img{
                                 width: 20px;
@@ -478,11 +646,19 @@ main{
                     align-items: flex-start;
                     padding: 80px 0 0 80px;
 
+                    @include md {
+                        padding: 40px 0 0 40px;
+                    }
+
                     .poster-text{
                         font-family: 'Times New Roman';
                         font-size: 36px;
                         font-weight: 700;
                         font-style: italic;
+
+                        @include md {
+                            font-size: 30px;
+                        }
                     }
 
                     .poster-writter{
@@ -490,6 +666,10 @@ main{
                         font-size: 20px;
                         font-weight: 400;
                         margin-top: 15px;
+
+                        @include md {
+                            font-size: 18px;
+                        }
                     }
                 }
 
@@ -503,6 +683,10 @@ main{
                         font-family: 'Eagle Lake', cursive;
                         font-size: 30px;
                         margin-top: 35px;
+
+                        @include md {
+                            font-size: 24px;
+                        }
                     }
                 }
 
@@ -518,9 +702,17 @@ main{
                         font-weight: 700;
                         margin-top: 170px;
 
+                        @include md {
+                            font-size: 24px;
+                        }
+
                         span{
                             font-size: 37px;
                             font-weight: 900;
+
+                            @include md {
+                                font-size: 30px;
+                            }
                         }
                     }
                 }
@@ -531,6 +723,7 @@ main{
 
 footer{
     font-family: $font-secondary;
+
     .footer-inner{
         height: 100%;
         width: 90%;
@@ -538,61 +731,88 @@ footer{
         display: flex;
         padding: 90px 0;
 
-        .footer-nav, .footer-shop, .footer-contact, .footer-newsletter{
-            flex: 1;
+        @include md {
+            flex-direction: column;
+        }
 
-            .footer-title{
-                font-size: 20px;
-                font-weight: 700;
-                margin-bottom: 50px;
+        .row{
+            height: 100%;
+            width: 100%;
+            display: flex;
+
+            @include md {
+                margin-bottom: 20px;
             }
 
-            .footer-text{
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 1.6;
-            } 
-
-            .phone{
-                margin-top: 40px;
-            }
-
-            .phone, .fax, .mail{
-                line-height: 1.6;
-            }
-
-            nav{
-                display: flex;
-                flex-direction: column;
-
-                .nav-link{
-                    color: $primary-color;
+            .footer-nav, .footer-shop, .footer-contact, .footer-newsletter{
+                flex: 1;
+    
+                .footer-title{
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 50px;
+    
+                    @include lg {
+                        font-size: 18px;
+                    }
+                }
+    
+                .footer-text{
                     font-size: 16px;
                     font-weight: 400;
-                    margin-bottom: 18px;
+                    line-height: 1.6;
+    
+                    @include lg {
+                        font-size: 14px;
+                    }
+                } 
+    
+                .phone{
+                    margin-top: 40px;
                 }
-            }
-
-            input{
-                height: 40px;
-                width: 100%;
-                background-color: $tertiary-color;
-                border: none;
-                outline: none;
-                padding-left: 20px;
-                margin-top: 30px;
-                margin-bottom: 15px;
-
-                &::placeholder{
-                    color: #a9a9a9;
+    
+                .phone, .fax, .mail{
+                    line-height: 1.6;
                 }
+    
+                nav{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+    
+                    .nav-link{
+                        color: $primary-color;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-bottom: 18px;
+    
+                        @include lg {
+                            font-size: 14px;
+                        }
+                    }
+                }
+    
+                input{
+                    height: 40px;
+                    width: 100%;
+                    background-color: $tertiary-color;
+                    border: none;
+                    outline: none;
+                    padding-left: 20px;
+                    margin-top: 30px;
+                    margin-bottom: 15px;
+    
+                    &::placeholder{
+                        color: #a9a9a9;
+                    }
+                }
+    
+                button{
+                    width: 128px;
+                    height: 38px;
+                }
+               
             }
-
-            button{
-                width: 128px;
-                height: 38px;
-            }
-           
         }
     }
 
@@ -608,9 +828,23 @@ footer{
             justify-content: space-between;
             align-items: center;
 
+            @include md {
+                flex-direction: column;
+                justify-content: center;
+            }
+
             .copyright{
                 font-size: 16px;
                 font-weight: 400;
+
+                @include lg {
+                    font-size: 14px;
+                }
+
+                @include md {
+                    order: 1;
+                    margin-top: 12px;
+                }
             }
 
             .socials{
@@ -659,8 +893,3 @@ footer{
     }
 
 }
-
-@media (max-width: 945px){
-    
-}
-

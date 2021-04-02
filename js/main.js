@@ -11,4 +11,16 @@ navMenu.addEventListener("click", function() {
     }
 
     navContent.classList.toggle("open")
+}) 
+
+$('.owl-carousel').owlCarousel({
+    items: 1,
+    dots: true,
+    mouseDrag: false
+})
+
+$('#testimonials').owlCarousel({
+    items: 1,
+    dots: true,
+    mouseDrag: false
 })
