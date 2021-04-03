@@ -103,6 +103,10 @@ header{
             
             img{
                 vertical-align: middle;
+
+                @include md {
+                    width: 80%;
+                }
             }
         }
 
@@ -157,7 +161,7 @@ header{
             display: flex;
             flex-direction: column;
             padding: 190px 0 0 290px;
-            opacity: 98%;
+            opacity: 0%;
             transition: 0.8s;
 
             @include lg {
@@ -170,6 +174,7 @@ header{
 
             &.open{
                 left: 0;
+                opacity: 98%;
             }
 
             .nav-link{
@@ -206,6 +211,10 @@ header{
         @include lg {
             margin-top: -60px !important;
         }
+
+        @include md {
+            margin-top: -80px !important;
+        }
     }
 
     .item{
@@ -237,6 +246,10 @@ header{
                 @include lg {
                     font-size: 140px;
                 }
+
+                @include md {
+                    font-size: 100px;
+                }
             }
         
             .hero-subtitle{
@@ -247,6 +260,11 @@ header{
 
                 @include lg {
                     font-size: 42px;
+                    margin-bottom: 180px;
+                }
+
+                @include md {
+                    font-size: 32px;
                 }
             }
         }
@@ -313,7 +331,11 @@ main{
         background-color: #ffddd5;
 
         @include lg {
-            height: 550px;
+            height: 500px;
+        }
+
+        @include md {
+            height: 400px;
         }
 
         .testimonials-inner{
@@ -322,17 +344,18 @@ main{
             display: flex;
             align-items: flex-start;
 
+            @include lg{
+                width: 100%;
+            }
+
             .disabled+.owl-dots{
-                margin-top: 0;
+                margin-top: -30px;
 
                 @include lg {
-                    margin-top: -60px;
+                    margin-top: -100px;
                     text-align: center;
                 }
 
-                @include md {
-                    margin-top: -80px;
-                }
             }
             
             .owl-dots{
@@ -363,27 +386,62 @@ main{
             .owl-carousel{
                 overflow: hidden;
                 flex: 1 !important;
-                padding: 100px 0px 80px 5%;
                 height: 100%;
-
-                @include lg {
-                    padding: 40px 0 40px 5%;
-                }
-
-                @include md {
-                    padding: 20px 0 20px 5%;
-                }
-
-                .testimonials-content{                
+                padding: 100px 0px 80px 5%;  
+                    
+                    @include lg {
+                        padding: 0;
+                    }
     
-                    .testimonials-text{
-                        font-size: 36px;
-                        font-weight: 700;
-                        line-height: 1.5;
-                        width: 80%;
+                    @include md {
+                        padding: 0;
+                    }
 
-                        @include lg {
-                            font-size: 30px;
+                    .owl-stage-outer{
+                        height: 100%;
+
+                        .owl-stage{
+                            height: 100%;
+
+                            .owl-item{
+                                height: 100%;
+                                .testimonials-content{
+                                    height: 100%;
+
+                                    @include lg{
+                                        width: 90%;
+                                        height: 100%;
+                                        margin: 0 auto;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+                                        text-align: center;
+                                        padding: 90px 0;
+                                        flex:none;
+                                    }
+
+                                    @include md{
+                                        padding: 40px 0 80px 0;
+                                    }
+
+                                    .testimonials-text{
+                                        font-size: 36px;
+                                        font-weight: 700;
+                                        line-height: 1.5;
+                                        width: 80%;
+                
+                                        @include lg {
+                                            font-size: 30px;
+                                            width: 100%;
+                                        }
+        
+                                        @include md {
+                                            font-size: 22px;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
     
@@ -395,14 +453,21 @@ main{
                         @include lg {
                             font-size: 30px;
                         }
+
+                        @include md {
+                            margin-top: 25px;
+                        }
                     }
 
-                }
             }
 
             .testimonials-image{
                 flex: 1;
                 height: 100%;
+
+                @include lg{
+                    display: none;
+                }
 
                 img{
                     width: 100%;
@@ -441,14 +506,26 @@ main{
             .cards-row{
                 display: flex;
 
+                @include md{
+                    flex-direction: column;
+                }
+
                 .card{
                     flex: 1;
                     width: 290px;
                     padding: 50px;
                     border: 1px solid #dcdcdc;
 
+                    @include md{
+                        width: 100%;
+                    }
+
                     &:nth-child(odd){
                         border-right: none;
+
+                        @include md{
+                            border-right: 1px solid #dcdcdc;
+                        }
                     }
 
                     .card-title{
@@ -579,10 +656,20 @@ main{
                     grid-template-rows: 300px 300px;
                 }
 
+                @include sm {
+                    display: flex;
+                    flex-direction: column;
+                }
+
                 .poster-card{
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    overflow: hidden;
+
+                    @include sm {
+                        height: 200px;
+                    }
                 }
 
                 .poster-card:first-child{
@@ -602,6 +689,10 @@ main{
                         @include md {
                             font-size: 60px;
                         }
+
+                        @include sm {
+                            font-size: 30px;
+                        }
                     }
 
                     .buy-share{
@@ -614,6 +705,10 @@ main{
                         padding: 30px;
                         text-transform: uppercase;
                         letter-spacing: 2px;
+
+                        @include sm {
+                            padding: 15px;
+                        }
                         
                         .buy-btn{
                             color: $secondary-color;
@@ -621,6 +716,10 @@ main{
 
                             @include md {
                                 font-size: 16px;
+                            }
+
+                            @include sm {
+                                font-size: 14px;
                             }
                         }
 
@@ -630,6 +729,10 @@ main{
 
                             @include md {
                                 font-size: 12px;
+                            }
+
+                            @include sm {
+                                font-size: 10px;
                             }
                             
                             img{
@@ -650,6 +753,10 @@ main{
                         padding: 40px 0 0 40px;
                     }
 
+                    @include sm {
+                        padding: 10px 0 0 10px;
+                    }
+
                     .poster-text{
                         font-family: 'Times New Roman';
                         font-size: 36px;
@@ -658,6 +765,10 @@ main{
 
                         @include md {
                             font-size: 30px;
+                        }
+
+                        @include sm {
+                            font-size: 22px;
                         }
                     }
 
@@ -687,6 +798,7 @@ main{
                         @include md {
                             font-size: 24px;
                         }
+
                     }
                 }
 
@@ -706,12 +818,21 @@ main{
                             font-size: 24px;
                         }
 
+                        @include sm {
+                            font-size: 25px;
+                            margin-top: 50px;
+                        }
+
                         span{
                             font-size: 37px;
                             font-weight: 900;
 
                             @include md {
                                 font-size: 30px;
+                            }
+
+                            @include sm {
+                                font-size: 29px;
                             }
                         }
                     }
@@ -744,8 +865,17 @@ footer{
                 margin-bottom: 20px;
             }
 
+            @include sm {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .footer-nav, .footer-shop, .footer-contact, .footer-newsletter{
                 flex: 1;
+
+                @include sm {
+                    text-align: center;
+                }
     
                 .footer-title{
                     font-size: 20px;
@@ -755,6 +885,7 @@ footer{
                     @include lg {
                         font-size: 18px;
                     }
+
                 }
     
                 .footer-text{
@@ -779,6 +910,10 @@ footer{
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
+
+                    @include sm {
+                        align-items: center;
+                    }
     
                     .nav-link{
                         color: $primary-color;
@@ -813,6 +948,13 @@ footer{
                 }
                
             }
+
+            .footer-shop .footer-title, .footer-newsletter .footer-title{
+                
+                @include sm {
+                    margin-top: 25px;
+                }
+            }
         }
     }
 
@@ -845,6 +987,11 @@ footer{
                     order: 1;
                     margin-top: 12px;
                 }
+
+                @include sm{
+                    font-size: 12px;
+                    text-align: center;
+                }
             }
 
             .socials{
@@ -857,39 +1004,4 @@ footer{
             }
         }
     }
-}
-
-@media (max-width: 1040px){
-
-    main{
-
-        .testimonials{
-        
-            .testimonials-inner{
-                width: 100%;
-        
-                .testimonials-content{
-                    width: 90%;
-                    height: 100%;
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    padding: 90px 0;
-                    flex:none;
-
-                    .testimonials-text{
-                        width: 100%;
-                    }
-                }
-            
-                .testimonials-image{
-                    display: none;
-                }
-            }
-        }
-    }
-
 }
